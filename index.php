@@ -36,12 +36,13 @@ header('Content-Type: text/html; charset=utf-8');
         <div id="main-container">
             <div id="savestatus">Ei tallennettu</div>
             <div id="locationstatus"></div>
+            <div id="location-button">Get this location</div>
             <div id="observationForm">
                 Laji: <input type="text" name="species" id="species"></input><br>
                 Määrä: <input type="text" name="count" id="count"></input><br>
                 Lisätieto: <input type="text" name="notes" id="notes"></input><br>
-<br><br>                <span id="pseudoedit">Pseudoedit</span>
             </div>
+            <div id="newobservation-button"><a href="./">Make a new observation</a></div>
         </div> <!-- #main-container -->
 
         <footer class="wrapper">

@@ -6,16 +6,21 @@ var locationData;
 var lastResponse;
 var id = "";
 
-$( "#pseudoedit" ).click(function() {
-  saveData();
+$( "#species, #count, #notes" ).keyup(function() {
+  $( "#savestatus" ).html( "Ei tallennettu" );
+  console.log("focusin")
 });
 
 $( "#species, #count, #notes" ).focusout(function() {
   saveData();
+  console.log("focusout");
 });
 
-// Todo: vaihda klikkiin reagoivaksi
-document.addEventListener("DOMContentLoaded", determineLocation);
+$( "#location-button" ).click(function() {
+  determineLocation();
+  console.log("location button clicked");
+});
+
 
 function determineLocation(event)
 {
@@ -57,7 +62,7 @@ function determineLocation(event)
     locationData = position;
     saveData();
 
-    console.log(position);
+    console.log("position got / " + position);
   }
 
   function displayError(error) {
@@ -81,11 +86,13 @@ function determineLocation(event)
 function saveData()
 {
   $( "#savestatus" ).html( "Tallentaa..." );
-  console.log("saveData triggered: " + locationData);
 
+  var dataToPost = {};
   // Combine location, id and form data to an object
   // location:
-  var dataToPost = locationData;
+  if (typeof locationData !== 'undefined') {
+    dataToPost.location = locationData;
+  }
   // id:
   dataToPost.id = id;
   // form:
@@ -102,7 +109,7 @@ function saveData()
     id = response;
 
     $( "#savestatus" ).html( "Tallennettu" );
-    console.log("Response: " + response);
+    console.log("saveData / " + response);
   });
 }
 
