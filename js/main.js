@@ -8,7 +8,7 @@ var id = "";
 
 $( "#species, #count, #notes" ).keyup(function() {
   $( "#savestatus" ).html( "Ei tallennettu" );
-  console.log("focusin")
+  console.log("keyup")
 });
 
 $( "#species, #count, #notes" ).focusout(function() {
@@ -91,7 +91,7 @@ function saveData()
   // Combine location, id and form data to an object
   // location:
   if (typeof locationData !== 'undefined') {
-    dataToPost.location = locationData;
+    dataToPost = locationData;
   }
   // id:
   dataToPost.id = id;
