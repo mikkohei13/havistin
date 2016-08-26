@@ -3,6 +3,9 @@
 // http://html5doctor.com/finding-your-position-with-geolocation/
 
 var locationData;
+var lastResponse;
+var id = "";
+
 
 document.addEventListener("DOMContentLoaded", determineLocation);
 
@@ -78,6 +81,10 @@ function saveData()
   var posting = $.post( url, locationData );
 
   posting.done( function( response ) {
+
+    // Take id from response
+    id = response;
+
     $( "#savestatus" ).html( "Tallennettu" );
     console.log("Response: " + response);
   });

@@ -1,5 +1,4 @@
 <?php
-header('Content-Type: application/json; charset=utf-8');
 
 $dataDirty = Array();
 
@@ -23,8 +22,15 @@ $filename = "data/" . sha1($uriId) . ".json";
 
 file_put_contents($filename, json_encode($dataDirty));
 
+// Response as plain text
+echo $uriId;
+
+/*
+// Response as JSON; problem with charset??
+header('Content-Type: application/json; charset=utf-8');
 $response['code'] = "ok";
 $response['id'] = $uriId;
 
 $jsonResponse = json_encode($response);
 echo $jsonResponse;
+*/
