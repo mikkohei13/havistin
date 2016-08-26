@@ -10,6 +10,10 @@ $( "#pseudoedit" ).click(function() {
   saveData();
 });
 
+$( "#species, #count, #notes" ).focusout(function() {
+  saveData();
+});
+
 // Todo: vaihda klikkiin reagoivaksi
 document.addEventListener("DOMContentLoaded", determineLocation);
 

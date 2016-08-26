@@ -34,6 +34,7 @@ header('Content-Type: text/html; charset=utf-8');
 
 
         <div id="main-container">
+            <div id="savestatus">Ei tallennettu</div>
             <div id="locationstatus"></div>
             <div id="observationForm">
                 Laji: <input type="text" name="species" id="species"></input><br>
