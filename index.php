@@ -34,6 +34,8 @@ header('Content-Type: text/html; charset=utf-8');
 
 
         <div id="main-container">
+            <div id="locationstatus"></div>
+            THE CONTENT
         </div> <!-- #main-container -->
 
         <footer class="wrapper">

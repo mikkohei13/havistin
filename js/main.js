@@ -2,6 +2,8 @@
 // Based on code by Ian Devlin
 // http://html5doctor.com/finding-your-position-with-geolocation/
 
+var locationData;
+
 document.addEventListener("DOMContentLoaded", determineLocation);
 
 function determineLocation(event)
@@ -21,7 +23,6 @@ function determineLocation(event)
   else {
     $( "#locationstatus" ).html( "Fail: ei tukea" );
     console.log("navigator.geolocation not supported");
-
   }
 
   function handlePosition(position) {
@@ -31,7 +32,7 @@ function determineLocation(event)
     }
     else
     {
-      // ABBA
+      $( "#locationstatus" ).html("Tarkka " + position.coords.accuracy + " m");
     }
 
 /*
@@ -41,22 +42,10 @@ function determineLocation(event)
     logData.latitude = position.coords.latitude;
     logData.longitude = position.coords.longitude;
 */
-    // DO THE MAGIC
-
-    );
+    // Set the location data to a variable for later use
+    locationData = position;
 
     console.log(position);
-  }
-
-  function updatePage(data)
-  {
-      console.log(data);
-      console.log("Success!");
-
-/*
-      $( "#error-container" ).html("");
-      $( "#main-container" ).load( "allspecies.php?grid=" + data.N + ":" + data.E );
-*/
   }
 
   function displayError(error) {
