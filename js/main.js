@@ -79,10 +79,17 @@ function saveData()
   $( "#savestatus" ).html( "Tallentaa..." );
   console.log("saveData triggered: " + locationData);
 
-  // combine location and form data to an object
+  // Combine location, id and form data to an object
+  // location:
   var dataToPost = locationData;
+  // id:
   dataToPost.id = id;
+  // form:
+  dataToPost.species = $( "#species" ).val();
+  dataToPost.count = $( "#count" ).val();
+  dataToPost.notes = $( "#notes" ).val();
 
+  // Post the data
   var url = "api/";
   var posting = $.post( url, locationData );
 
