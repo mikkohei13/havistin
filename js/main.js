@@ -44,6 +44,7 @@ function determineLocation(event)
 */
     // Set the location data to a variable for later use
     locationData = position;
+    saveData();
 
     console.log(position);
   }
@@ -56,13 +57,30 @@ function determineLocation(event)
     };
     console.log(errors[error.code]);
     $( "#locationstatus" ).html("Fail: " + errors[error.code]);
+
+    /*
+        1: 'Permission denied',
+        2: 'Position unavailable',
+        3: 'Request timeout'
+    */
   }
 
-  /*
-      1: 'Permission denied',
-      2: 'Position unavailable',
-      3: 'Request timeout'
-  */
+} // determine location
+
+function saveData()
+{
+  $( "#savestatus" ).html( "Tallentaa..." );
+  console.log("saveData triggered: " + locationData);
+
+  // TODO: combine location and form data to an object
+
+  var url = "api/";
+  var posting = $.post( url, locationData );
+
+  posting.done( function( response ) {
+    $( "#savestatus" ).html( "Tallennettu" );
+    console.log("Response: " + response);
+  });
 }
 
 

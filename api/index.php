@@ -2,16 +2,19 @@
 
 $dataDirty = Array();
 
-foreach ($_GET as $key => $value)
+foreach ($_POST as $key => $value)
 {
     $dataDirty[$key] = $value;
 }
 
-$id = "http://tun.fi/JA.123"; // dummy
+// Todo: Take the object id from post, if exists
 
-$filename = "data/" . sha1($id) . ".json";
+$objectId = "HAVISTIN-" . rand(100000, 999999);
+$uriId = "http://tun.fi/JA." . $objectId; // dummy
+
+$filename = "data/" . $objectId . ".json";
 
 file_put_contents($filename, json_encode($dataDirty));
 
-echo "ok";
+echo "ok: $uriId";
 
