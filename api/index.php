@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: application/json; charset=utf-8');
 
 $dataDirty = Array();
 
@@ -16,5 +17,8 @@ $filename = "data/" . $objectId . ".json";
 
 file_put_contents($filename, json_encode($dataDirty));
 
-echo "ok: $uriId";
+$response['code'] = "ok";
+$response['id'] = $uriId;
 
+$jsonResponse = json_encode($response);
+echo $jsonResponse;
