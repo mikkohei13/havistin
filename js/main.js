@@ -6,7 +6,11 @@ var locationData;
 var lastResponse;
 var id = "";
 
+$( "#pseudoedit" ).click(function() {
+  saveData();
+});
 
+// Todo: vaihda klikkiin reagoivaksi
 document.addEventListener("DOMContentLoaded", determineLocation);
 
 function determineLocation(event)
@@ -75,13 +79,14 @@ function saveData()
   $( "#savestatus" ).html( "Tallentaa..." );
   console.log("saveData triggered: " + locationData);
 
-  // TODO: combine location and form data to an object
+  // combine location and form data to an object
+  var dataToPost = locationData;
+  dataToPost.id = id;
 
   var url = "api/";
   var posting = $.post( url, locationData );
 
   posting.done( function( response ) {
-
     // Take id from response
     id = response;
 

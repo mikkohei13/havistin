@@ -8,7 +8,7 @@ foreach ($_POST as $key => $value)
 }
 
 // Todo: Take the object id from post, if exists
-if (isset($dataDirty['id']))
+if (! empty($dataDirty['id']))
 {
 	$uriId = $dataDirty['id'];
 }

@@ -36,6 +36,9 @@ header('Content-Type: text/html; charset=utf-8');
         <div id="main-container">
             <div id="locationstatus"></div>
             THE CONTENT
+            <div>
+                <span id="pseudoedit">Pseudoedit</span>
+            </div>
         </div> <!-- #main-container -->
 
         <footer class="wrapper">
