@@ -1,5 +1,8 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
+
+$date = date("d.m.Y");
+$time = date("H.i");
 ?>
 
 <!doctype html>
@@ -38,6 +41,8 @@ header('Content-Type: text/html; charset=utf-8');
             <div id="locationstatus"></div>
             <div id="location-button">Get this location</div>
             <div id="observationForm">
+                PVM: <input type="text" name="date" id="date" value="<?php echo $date; ?>"><br>
+                Aika: <input type="text" name="time" id="time" value="<?php echo $time; ?>"><br>
                 Laji: <input type="text" name="species" id="species"></input><br>
                 Määrä: <input type="text" name="count" id="count"></input><br>
                 Lisätieto: <input type="text" name="notes" id="notes"></input><br>

@@ -1,11 +1,12 @@
 
-// Based on code by Ian Devlin
-// http://html5doctor.com/finding-your-position-with-geolocation/
+// Setup
 
 var locationData;
 var lastResponse;
 var id = "";
 
+
+// Event listeners
 $( "#species, #count, #notes" ).keyup(function() {
   $( "#savestatus" ).html( "Ei tallennettu" );
   console.log("keyup")
@@ -21,6 +22,11 @@ $( "#location-button" ).click(function() {
   console.log("location button clicked");
 });
 
+
+
+// Geolocation
+// Based on code by Ian Devlin
+// http://html5doctor.com/finding-your-position-with-geolocation/
 
 function determineLocation(event)
 {
@@ -96,6 +102,8 @@ function saveData()
   // id:
   dataToPost.id = id;
   // form:
+  dataToPost.date = $( "#date" ).val();
+  dataToPost.time = $( "#time" ).val();
   dataToPost.species = $( "#species" ).val();
   dataToPost.count = $( "#count" ).val();
   dataToPost.notes = $( "#notes" ).val();
