@@ -39,7 +39,7 @@ $time = date("H.i");
         <div id="main-container">
             <div id="savestatus">Ei tallennettu</div>
             <div id="locationstatus"></div>
-            <div id="location-button">Get this location</div>
+            <div id="location-button" class="button">Get this location</div>
             <div id="observationForm">
                 PVM: <input type="text" name="date" id="date" value="<?php echo $date; ?>"><br>
                 Aika: <input type="text" name="time" id="time" value="<?php echo $time; ?>"><br>
@@ -47,7 +47,7 @@ $time = date("H.i");
                 Määrä: <input type="text" name="count" id="count"></input><br>
                 Lisätieto: <input type="text" name="notes" id="notes"></input><br>
             </div>
-            <div id="newobservation-button"><a href="./">Make a new observation</a></div>
+            <div id="newobservation-button" class="button"><a href="./">Make a new observation</a></div>
         </div> <!-- #main-container -->
 
         <footer class="wrapper">
