@@ -97,7 +97,6 @@ App structure (6/2018):
 - Muuta ui -> app
 - Move secrets to root, update gitignore
 - Production in Docker, with volume to store the data
-- Remove morgan from app.js and package
 - Decouple file storage from laji_api - inject instead
 
 
