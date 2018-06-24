@@ -33,7 +33,7 @@ const getUserData = function getUserData(req, res, next) {
       }
     }
     else {
-      winston.info(`Got user data: ${lajifi}`);
+      winston.info(`Got user data: ${JSON.stringify(lajifi)}`);
 
       req.lajifi = lajifi;
       next();
@@ -44,17 +44,16 @@ const getUserData = function getUserData(req, res, next) {
 const getUserFiles = function getUserFiles(req, res, next) {
   // TODO: better variable names, e.g. lajifi -> userData, or can it contain other info also?
 
-  let pluscode;
-  pluscode = req.lajifi.user.pluscode;
-//  pluscode = "test"; // debug
+  let userId = req.lajifi.user.id;
+//  pluscode = "MA.3"; // debug
 
-  DbModels.getUserFiles(pluscode, (error, ret) => {
+  DbModels.getUserFiles(userId, (error, ret) => {
     if (error) {
       winston.error(`Error fetching files: ${error}`);
       res.send(`Error when fething your files: ${error}`);
     }
 
-    winston.info(`Fetched files: ${ret}`);
+    winston.info(`Fetched files: ${JSON.stringify(ret)}`);
     req.userFiles = ret;
     next();
   });

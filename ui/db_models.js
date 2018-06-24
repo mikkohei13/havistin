@@ -32,17 +32,17 @@ const organizeUserFilesByStatus = function organizeUserFilesByStatus(userFiles) 
   return userFilesByStatus;
 };
 
-const getUserFiles = function getUserFiles(pluscode, callback) {
-  // TODO: maybe organize files here by status??
+const getUserFiles = function getUserFiles(userId, callback) {
   // TODO: error handling
 
   const userFiles = db.get("files")
-    .filter({ pluscode: pluscode })
+    .filter({ userId: userId })
     .sortBy("filename")
     .take(100)
     .value();
 
-  callback(null, organizeUserFilesByStatus(userFiles));
+  const userFilesByStatus = organizeUserFilesByStatus(userFiles);
+  callback(null, userFilesByStatus);
 };
 
 const setFileAsSent = function setFileAsSent(fileId, vihkoFileId) {

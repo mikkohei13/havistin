@@ -79,6 +79,7 @@ App structure (6/2018):
 ## Soon
 - Fetch
     - Sanitize file names, so that they can be used as get param
+    - User userid as part of filename instead of pluscode, which should only be coupled with the email
     - Test
         - Several recipients -> Parses the file ok
         - No attachment -> Skips the email
@@ -86,7 +87,7 @@ App structure (6/2018):
         - Multiple gpx-attachments in one message -> Ever only parses one of them
         - Multiple attachments in one message, one of which is gpx -> One gpx is parsed (randomly?)
         - Malformed gpx attached -> Doesn't parse the file, but DOESN'T MOVE TO NEXT FILE EITHER = Malformed gpx file will stop all new files being processed = bug
-        - kml instead of gpx
+        - kml instead of gpx -> ??
 - Send
     - Reload db.json at every page load
     - Understand parsing json from api: body-parser module?
@@ -94,10 +95,9 @@ App structure (6/2018):
     - !!! Save sent id's into an array in the db.json, and read them from an array using loop on handlbards template (will make easier to allow multiple sends per file in the future)
 - Sanitize user input?
 - Muuta ui -> app
-- Decouple pluscode from usercode -> can start using without pluscode, if email feature is not used
 - Move secrets to root, update gitignore
 - Production in Docker, with volume to store the data
-- Remove mrngan from app.js and package
+- Remove morgan from app.js and package
 - Decouple file storage from laji_api - inject instead
 
 
