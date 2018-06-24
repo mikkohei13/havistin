@@ -1,0 +1,65 @@
+<h1>Havistin</h1>
+
+<p>Send your GPX-files to <a href="mailto:{{secretEmail}}" class="secret email">{{secretEmail}}</a>. This address is personal for you - keep it private! All GPX-files sent to it will be visible here on your account.</p>
+
+<div id="files">
+<h4>Valid unsent files:</h4>
+<ul>
+{{#each userFiles.valid}}
+  <li>
+    {{this.id}}
+    - <a href="/send/file/{{this.id}}?person_token={{../person_token}}" class="button send vihko">send this to Vihko</a>
+    <ul>
+      <li>{{this.gpx.name}}</li>
+      <li>{{this.gpx.dateBegin}}</li>
+      <li>{{this.gpx.segmentCount}} segments</li>
+      <li>{{this.gpx.waypointCount}} waypoints</li>
+    </ul>
+  </li>
+{{else}}
+  <li>No files.</li>
+{{/each}}
+</ul>
+<h4>Invalid files:</h4>
+<ul>
+{{#each userFiles.invalid}}
+  <li>
+    {{this.id}}
+    - {{validationMessage}}
+    <ul>
+      <li>{{this.gpx.name}}</li>
+      <li>{{this.gpx.dateBegin}}</li>
+      <li>{{this.gpx.segmentCount}} segments</li>
+      <li>{{this.gpx.waypointCount}} waypoints</li>
+    </ul>
+  </li>
+{{else}}
+  <li>No files.</li>
+{{/each}}
+</ul>
+<h4>Sent files:</h4>
+<ul>
+{{#each userFiles.sent}}
+  <li>
+    {{this.id}}
+    - <a href="https://laji.fi/vihko/JX.519/{{this.vihkoFileId}}" class="button edit vihko">edit on Vihko</a> <span class="divider">|</span> <a href="/send/file/{{this.id}}?person_token={{../person_token}}" class="button send again vihko">send this again to Vihko</a>
+    <ul>
+      <li>{{this.gpx.name}}</li>
+      <li>{{this.gpx.dateBegin}}</li>
+      <li>{{this.gpx.segmentCount}} segments</li>
+      <li>{{this.gpx.waypointCount}} waypoints</li>
+    </ul>
+  </li>
+{{else}}
+  <li>No files.</li>
+{{/each}}
+</ul>
+</div>
+
+<hr />
+
+<div id="personalData">
+<h4>Personal data about you from Laji.fi:</h4>
+<p>{{personalDataJSON}}</p>
+<p>If there is an error, please fix it at Laji.fi. If you wish your data to be removed from Havistin, email to hiha(ät)biomi.org.</p>
+</div>
