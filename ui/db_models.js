@@ -9,7 +9,7 @@ const FileSync = require("lowdb/adapters/FileSync");
 // -----------------------------------------------------------
 // Setup
 
-const adapter = new FileSync("../db.json");
+const adapter = new FileSync("./storage/db/db.json"); // Relative to where app is started
 const db = lowdb(adapter);
 
 // -----------------------------------------------------------

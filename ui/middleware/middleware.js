@@ -5,7 +5,7 @@ Business logic is in modules, this handles errors.
 Data flows through in the req object.
 */
 const winston = require("winston");
-winston.add(winston.transports.File, { filename: "../logs/send.log" });
+winston.add(winston.transports.File, { filename: "./storage/logs/ui.log" });
 
 const lajifiApi = require("../lajifi_api");
 const DbModels = require("../db_models");

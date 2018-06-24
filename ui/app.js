@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 
 // Router for /send
-app.use("/send", routeSend);
+app.use("/", routeSend);
 
 
 // catch 404 and forward to error handler

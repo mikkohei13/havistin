@@ -24,12 +24,6 @@ System to save nature observations captured by GPX tracker to FinBIF/laji.fi.
 - Systeemi näyttää linkin, josta pääsee dokumenttiin Vihkossa
 - Käyttäjä täydentää dokumentin ja tallentaa
 
-## BOTH
-
-Linting:
-
-    ./node_modules/.bin/eslint ./send/FILENAME
-
 ## FETCH
 
 Run fetcher from the `fetch` directory, with settings in nodemon.json:
@@ -38,11 +32,15 @@ Run fetcher from the `fetch` directory, with settings in nodemon.json:
 
 This should be run by a cronjob, e.g. every 10 minutes. (Does Gmail set limits on the frequency?)
 
-## SEND
+## UI
 
-Run sender from the `send` directory:
+Run from the roo directory:
 
-    nodemon index.js
+    npm start
+
+Linting:
+
+    ./node_modules/.bin/eslint ./send/FILENAME
 
 Access using personToken:
 - Get the token using Havistin authenticator: https://www.biomi.org/havistin/
@@ -95,6 +93,12 @@ App structure (6/2018):
     - (Try sending invalid file)
     - !!! Save sent id's into an array in the db.json, and read them from an array using loop on handlbards template (will make easier to allow multiple sends per file in the future)
 - Sanitize user input?
+- Muuta ui -> app
+- Decouple pluscode from usercode -> can start using without pluscode, if email feature is not used
+- Move files to ./storage
+- Move secrets to root, update gitignore
+- Production in Docker, with volume to store the data
+- Remove mrngan from app.js and package
 
 
 Note about JS:
