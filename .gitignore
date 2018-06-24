@@ -1,12 +1,6 @@
 secrets.js
 ui/secrets.js
-logs/*
-fetch-OLD/*
-db.json
-node_modules/*
 
-fetch/files_document/*
-fetch/files_document_sent/*
-fetch/files_gpx/*
-fetch/files_gpx_archive/*
-fetch/files_document_archive/*
+storage/*
+
+node_modules/*
