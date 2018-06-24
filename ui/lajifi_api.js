@@ -99,7 +99,7 @@ const getUserData = function getUserData(personToken, callback) {
 };
 
 const sendFile = function sendFile(fileId, personToken, callback) {
-  const documentJSON = fs.readFileSync(`../fetch/files_document_archive/${fileId}.json`);
+  const documentJSON = fs.readFileSync(`./storage/files/document_archive/${fileId}.json`);
 
   // This expects the file to be already validated using the api. This may break if validation rules have changed since the file was first validated.
   const endpoint = `https://api.laji.fi/v0/documents?access_token=${secrets.lajifiApiToken}&personToken=${personToken}`;

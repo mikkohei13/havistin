@@ -95,10 +95,10 @@ App structure (6/2018):
 - Sanitize user input?
 - Muuta ui -> app
 - Decouple pluscode from usercode -> can start using without pluscode, if email feature is not used
-- Move files to ./storage
 - Move secrets to root, update gitignore
 - Production in Docker, with volume to store the data
 - Remove mrngan from app.js and package
+- Decouple file storage from laji_api - inject instead
 
 
 Note about JS:
