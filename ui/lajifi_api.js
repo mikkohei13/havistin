@@ -4,17 +4,18 @@ person_token = token = käyttäjän väliaikainen token
 access_token = kehittäjän token
 */
 
-// todo: inject these
-const secrets = require("./secrets");
-
 const request = require("request");
 const fs = require("fs");
-
 
 // -----------------------------------------------------------
 // Setup
 
-const plusCodes = secrets.plusCodes;
+let secrets;
+
+const setSecrets = function setSecrets(injectedSecrets) {
+  secrets = injectedSecrets;
+  console.log("Set secrets:" + JSON.stringify(secrets))
+}
 
 // -----------------------------------------------------------
 // Functions
@@ -76,9 +77,9 @@ const getUserData = function getUserData(personToken, callback) {
             lajifi.user = apiBodyObject;
 
             // All ok
-            if (plusCodes[lajifi.user.id] !== undefined) {
+            if (secrets.plusCodes[lajifi.user.id] !== undefined) {
               // Pluscode and email
-              lajifi.user.pluscode = plusCodes[lajifi.user.id];
+              lajifi.user.pluscode = secrets.plusCodes[lajifi.user.id];
               lajifi.user.secretEmail = `${secrets.email.prefix}+${lajifi.user.pluscode}${secrets.email.domain}`;
 
               callback(null, lajifi);
@@ -183,4 +184,5 @@ const sendFile = function sendFile(fileId, personToken, callback) {
 module.exports = {
   getUserData: getUserData,
   sendFile: sendFile,
+  setSecrets: setSecrets,
 };

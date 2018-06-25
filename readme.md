@@ -95,7 +95,7 @@ App structure (6/2018):
     - !!! Save sent id's into an array in the db.json, and read them from an array using loop on handlbards template (will make easier to allow multiple sends per file in the future)
 - Sanitize user input?
 - Muuta ui -> app
-- Move secrets to root, update gitignore
+- Inject secrets
 - Production in Docker, with volume to store the data
 - Decouple file storage from laji_api - inject instead
 

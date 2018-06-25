@@ -8,6 +8,12 @@ const winston = require("winston");
 winston.add(winston.transports.File, { filename: "./storage/logs/ui.log" });
 
 const lajifiApi = require("../lajifi_api");
+
+// TODO: Is this a good way to inject config to a module?
+const secrets = require("../../secrets");
+lajifiApi.setSecrets(secrets);
+
+// Todo: Inject storage location here as above
 const DbModels = require("../db_models");
 
 // -----------------------------------------------------------
